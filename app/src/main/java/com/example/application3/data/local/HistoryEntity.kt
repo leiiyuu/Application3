@@ -9,5 +9,5 @@ data class HistoryEntity(
     val id: Long = 0,
     val postId: Int,
     val title: String,
-    val timestamp: Long = System.currentTimeMillis()
+    val timestamp: Long
 )

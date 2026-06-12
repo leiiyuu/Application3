@@ -9,7 +9,7 @@ interface HistoryDao {
     @Insert
     suspend fun insert(entry: HistoryEntity)
 
-    @Query("SELECT * FROM history ORDER BY timestamp DESC")
+    @Query("SELECT * FROM history ORDER BY timestamp DESC, id DESC")
     suspend fun getAll(): List<HistoryEntity>
 
     @Query("DELETE FROM history")

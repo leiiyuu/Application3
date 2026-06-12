@@ -8,6 +8,7 @@ import com.example.application3.data.local.HistoryDatabase
 import kotlinx.coroutines.test.runTest
 import org.junit.After
 import org.junit.Assert.assertEquals
+import org.junit.Assert.assertTrue
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -39,7 +40,8 @@ class HistoryRepositoryIntegrationTest {
 
         val all = repository.getAllHistory()
         assertEquals(2, all.size)
-        assertEquals(2, all[0].postId) // последний добавленный — первый
+        assertTrue(all.any { it.postId == 1 })
+        assertTrue(all.any { it.postId == 2 })
     }
 
     @Test

@@ -30,6 +30,11 @@ fun PostNavGraph() {
 
     NavHost(navController = navController, startDestination = Routes.POST_LIST) {
         composable(Routes.POST_LIST) {
+
+            LaunchedEffect(Unit) {
+                viewModel.loadAllPosts()
+            }
+
             PostListScreen(
                 uiState = viewModel.listState,
                 searchQuery = viewModel.searchQuery,
@@ -67,7 +72,6 @@ fun PostNavGraph() {
                 uiState = historyViewModel.uiState,
                 onClearHistory = { historyViewModel.clearHistory() },
                 onPostClick = { postId ->
-                    viewModel.loadPostDetails(postId)
                     navController.navigate(Routes.postDetail(postId))
                 },
                 onRetry = { historyViewModel.loadHistory() },

@@ -51,9 +51,7 @@ class PostViewModel@Inject constructor(
     var searchQuery by mutableStateOf("")
         private set
 
-    init {
-        loadAllPosts()
-    }
+
 
     fun loadAllPosts() {
         loadAllJob?.cancel()

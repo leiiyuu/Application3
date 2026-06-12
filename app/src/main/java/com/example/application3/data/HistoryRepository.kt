@@ -14,7 +14,7 @@ class HistoryRepository @Inject constructor(
     }
 
     suspend fun addToHistory(postId: Int, title: String) {
-        dao.insert(HistoryEntity(postId = postId, title = title))
+        dao.insert(HistoryEntity(postId = postId, title = title, timestamp = System.currentTimeMillis()))
     }
 
     suspend fun clearHistory() {
